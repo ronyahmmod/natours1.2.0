@@ -1,0 +1,25 @@
+{
+  "name": "natours1.2.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app,js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js",
+    "debug": "ndb server.js"
+  },
+  "author": "Rony Ahmmod",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.22.0",
+    "morgan": "^1.10.0"
+  }
+}
