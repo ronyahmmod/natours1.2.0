@@ -1,20 +1,16 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'google'],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
+    sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {
-    'prettier/prettier': 'error',
-    'spaced-comment': 'off',
-    'no-console': 'off',
-  },
+  rules: {},
 };

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
-const tourSchema = mongoose.Schema(
+const tourSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -23,7 +23,10 @@ const tourSchema = mongoose.Schema(
     difficulty: {
       type: String,
       required: [true, 'A tour must have difficulty'],
-      enum: ['difficult', 'easy', 'medium'],
+      enum: {
+        values: ['difficult', 'easy', 'medium'],
+        message: 'Difficylty either: easy, medium, difficult'
+      }
     },
     ratingQuantity: {
       type: Number,
@@ -32,6 +35,8 @@ const tourSchema = mongoose.Schema(
     ratingsAverage: {
       type: Number,
       default: 4.5,
+      min: [1, 'Rating must be avobe of 1.0'],
+      max: [5, 'Rating must be bellow 5.0']
     },
     ratingsQuantity: {
       type: Number,
@@ -40,6 +45,12 @@ const tourSchema = mongoose.Schema(
     price: {
       type: Number,
       required: [true, 'A tour must have a price'],
+      validate: {
+        validator: function(x) {
+          return x < this.price;
+        },
+        message: 'Discount price ({VALUE}) should be below regular price'
+      }
     },
     priceDiscount: Number,
     summery: {

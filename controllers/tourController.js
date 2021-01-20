@@ -35,7 +35,6 @@ exports.getTour = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllTours = catchAsync(async (req, res, next) => {
-  console.log(req.query);
   const features = new APIFeatures(Tour.find(), req.query)
     .filter()
     .sort()

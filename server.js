@@ -2,6 +2,13 @@
 
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+
+process.on('uncaughtException', (err) => {
+  console.log('Uncaught exception: 😪😪😪. Server is shutting down...');
+  console.log(`Error: ${err.name} and Info: ${err.message}`);
+  process.exit(1);
+});
+
 const app = require('./app');
 
 dotenv.config({
@@ -22,21 +29,15 @@ mongoose
   .then((con) => {
     console.log('Database connection successfull 😀');
   })
-  .catch((err) => {
-    console.log(err);
-  });
 
-process.on('uncaughtException', (err) => {
-  console.log('Uncaught exception: 😪😪😪. Server is shutting down...');
-  console.log(`Error: ${err.name} and Info: ${err.message}`);
-  process.exit(1);
-});
+
 
 const server = app.listen(port, () => {
   console.log(`App running 😀 on localhost: ${port}`);
 });
 
 process.on('unhandledRejection', (err) => {
+  console.log(`Error: ${err.name} and Info: ${err.message}`);
   console.log(
     'Unhandled promise rejection: 😪😪😪. Server is shutting down...'
   );

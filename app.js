@@ -17,6 +17,7 @@ const userRouter = require('./routes/userRoutes');
 // CUSTOM MIDDLEWARE
 app.use((req, res, next) => {
   req.timeStamp = new Date().toISOString();
+  // console.log(req.headers);
   next();
 });
 

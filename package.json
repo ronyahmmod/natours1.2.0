@@ -11,14 +11,17 @@
   "author": "Rony Ahmmod",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.11",
-    "slugify": "^1.4.6"
+    "slugify": "^1.4.6",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.12.0",
-    "eslint": "^7.17.0",
+    "eslint": "^7.18.0",
     "eslint-plugin-react": "^7.22.0",
     "morgan": "^1.10.0"
   }
